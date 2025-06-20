@@ -1,0 +1,7 @@
+[versions]
+icu4j = "74.1"
+juniversalchardet = "2.4.0"
+
+[libraries]
+icu4j = { module = "com.ibm.icu:icu4j", version.ref = "icu4j" }
+juniversalchardet = { module = "com.github.albfernandez:juniversalchardet", version.ref = "juniversalchardet" }

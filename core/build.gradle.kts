@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.libsDirectory
-
 buildscript {
     repositories {
         mavenLocal()
@@ -24,4 +22,12 @@ repositories {
 dependencies {
     implementation(libs.icu4j)
     implementation(libs.juniversalchardet)
+
+    testImplementation(libs.junit.api)
+
+    testRuntimeOnly(libs.junit.engine)
+}
+
+tasks.test {
+    useJUnitPlatform()
 }

@@ -6,7 +6,10 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
+/*
+ * Copyright (c) 2025 mercury contributors
+ * This program is made available under the terms of the Apache License.
+ */
 class Icu4jEncodingDetectorTest {
 
 	Icu4jEncodingDetector detector = new Icu4jEncodingDetector();
@@ -37,7 +40,7 @@ class Icu4jEncodingDetectorTest {
 	void shouldReturnEmptyEncodingForEmptyInput() {
 		byte[] data = new byte[0];
 		String encoding = detector.detectEncoding(data);
-		assertThat(encoding).isEqualTo("");
+		assertThat(encoding).isEmpty();
 	}
 
 	@Test

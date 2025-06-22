@@ -130,7 +130,8 @@ This project was mainly inspired by the great passion of the [original author](h
 <details>
 <summary>Spoiler Alert: Key Scene Description</summary>
 
-In a memorable scene, the protagonist Miorine Rembran discovers a hidden message encoded in the DNA of a tomato left by her mother.  
+In a memorable scene, the protagonist Miorine Rembran discovers a hidden message encoded in the DNA of a tomato left by her mother.
+<br><br>
 The anime beautifully depicts this moment where a security system is unlocked using a Java-based system designed to decode the DNA message—mirroring the core idea behind this project.
 
 </details>

@@ -70,32 +70,34 @@ This mechanism allows the decoder to infer the original payload length by examin
 
 ### Example
 
-**Input**
-> - Text: `"A"`
-> - Encoding: UTF-8 → `0x41` → Binary: `01000001` (8 bits)
+#### **Input**
+- Text: `"A"`
+- Encoding: UTF-8 → `0x41` → Binary: `01000001` (8 bits)
 
-**Process**
+#### **Process**
 
->1. **Binary → DNA Payload (2 bits per base):**
+1. **Binary → DNA Payload (2 bits per base):**
+
 | Bits | DNA base |
 |-------|----------|
 | 01    | C        |
 | 00    | A        |
 | 00    | A        |
 | 01    | C        |
-Resulting DNA Payload: `CAAC` (4 bases)
 
->2. **Determine Padding:**
+_Resulting DNA Payload: `CAAC` (4 bases)_
+
+2. **Determine Padding:**
 Payload length = 4 bases  
 `4 % 3 = 1` → length is `3n + 1`
-According to the padding rule, a remainder of 1 requires **2 bases of padding**.
+According to the padding rule, a remainder of 1 requires **2 bases of padding**.  
 
->3. **Apply Padding:**
+3. **Apply Padding:**
 Append 2 padding bases (`A`) to DNA payload:  
 `CAAC` + `AA` = `CAACAA`  
 Now length = 6 bases (divisible by 3)
 
->4. **Select Stop Codon:**
+4. **Select Stop Codon:**
 Since 2 padding bases were added, select stop codon: `TGA`
 
 ---

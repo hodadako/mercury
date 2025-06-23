@@ -1,11 +1,12 @@
 package com.mercury.encoding;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.*;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
+
 /*
  * Copyright (c) 2025 mercury contributors
  * This program is made available under the terms of the Apache License.
@@ -45,7 +46,7 @@ class Icu4jEncodingDetectorTest {
 
 	@Test
 	void shouldDetectUtf8EncodingWithBom() {
-		byte[] bom = {(byte) 0xEF, (byte) 0xBB, (byte) 0xBF};
+		byte[] bom = {(byte)0xEF, (byte)0xBB, (byte)0xBF};
 		byte[] text = "hello".getBytes(StandardCharsets.UTF_8);
 		byte[] combined = new byte[bom.length + text.length];
 		System.arraycopy(bom, 0, combined, 0, bom.length);

@@ -20,6 +20,9 @@ public class ChardetEncodingDetector implements EncodingDetector {
 		String encoding = detector.getDetectedCharset();
 		detector.reset();
 
-		return encoding != null ? encoding : "";
+		if (encoding == null)
+			return "";
+
+		return encoding;
 	}
 }

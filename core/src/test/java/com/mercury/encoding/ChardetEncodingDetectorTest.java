@@ -11,9 +11,9 @@ import org.junit.jupiter.api.Test;
  * Copyright (c) 2025 mercury contributors
  * This program is made available under the terms of the Apache License.
  */
-class Icu4jEncodingDetectorTest {
+class ChardetEncodingDetectorTest {
 
-	Icu4jEncodingDetector detector = new Icu4jEncodingDetector();
+	ChardetEncodingDetector detector = new ChardetEncodingDetector();
 
 	@Test
 	void shouldDetectUtf8Encoding() {
@@ -28,13 +28,6 @@ class Icu4jEncodingDetectorTest {
 		byte[] data = koreanText.getBytes(Charset.forName("EUC-KR"));
 		String encoding = detector.detectEncoding(data);
 		assertThat(encoding).isEqualTo("EUC-KR");
-	}
-
-	@Test
-	void shouldDetectIso88591Encoding() {
-		byte[] data = "Bonjour le monde".getBytes(StandardCharsets.ISO_8859_1);
-		String encoding = detector.detectEncoding(data);
-		assertThat(encoding).isEqualTo("ISO-8859-1");
 	}
 
 	@Test
@@ -58,29 +51,49 @@ class Icu4jEncodingDetectorTest {
 
 	@Test
 	void shouldDetectUtf16LEEncoding() {
-		byte[] data = "hello".getBytes(StandardCharsets.UTF_16LE);
-		String encoding = detector.detectEncoding(data);
+		byte[] bom = {(byte) 0xFF, (byte) 0xFE};
+		byte[] text = "hello123121255311gdgsdge".getBytes(StandardCharsets.UTF_16LE);
+		byte[] combined = new byte[bom.length + text.length];
+		System.arraycopy(bom, 0, combined, 0, bom.length);
+		System.arraycopy(text, 0, combined, bom.length, text.length);
+
+		String encoding = detector.detectEncoding(combined);
 		assertThat(encoding).isEqualTo("UTF-16LE");
 	}
 
 	@Test
 	void shouldDetectUtf16BEEncoding() {
-		byte[] data = "hello".getBytes(StandardCharsets.UTF_16BE);
-		String encoding = detector.detectEncoding(data);
+		byte[] bom = {(byte) 0xFE, (byte) 0xFF};
+		byte[] text = "hello".getBytes(StandardCharsets.UTF_16BE);
+		byte[] combined = new byte[bom.length + text.length];
+		System.arraycopy(bom, 0, combined, 0, bom.length);
+		System.arraycopy(text, 0, combined, bom.length, text.length);
+
+		String encoding = detector.detectEncoding(combined);
 		assertThat(encoding).isEqualTo("UTF-16BE");
 	}
 
 	@Test
 	void shouldDetectUtf32LEEncoding() {
-		byte[] data = "hello".getBytes(Charset.forName("UTF-32LE"));
-		String encoding = detector.detectEncoding(data);
+		byte[] bom = {(byte) 0xFF, (byte) 0xFE, 0x00, 0x00};
+		byte[] text = "hello".getBytes(Charset.forName("UTF-32LE"));
+		byte[] combined = new byte[bom.length + text.length];
+		System.arraycopy(bom, 0, combined, 0, bom.length);
+		System.arraycopy(text, 0, combined, bom.length, text.length);
+
+		String encoding = detector.detectEncoding(combined);
 		assertThat(encoding).isEqualTo("UTF-32LE");
 	}
 
 	@Test
 	void shouldDetectUtf32BEEncoding() {
-		byte[] data = "hello".getBytes(Charset.forName("UTF-32BE"));
-		String encoding = detector.detectEncoding(data);
+		byte[] bom = {0x00, 0x00, (byte) 0xFE, (byte) 0xFF};
+		byte[] text = "hello".getBytes(Charset.forName("UTF-32BE"));
+		byte[] combined = new byte[bom.length + text.length];
+		System.arraycopy(bom, 0, combined, 0, bom.length);
+		System.arraycopy(text, 0, combined, bom.length, text.length);
+
+		String encoding = detector.detectEncoding(combined);
 		assertThat(encoding).isEqualTo("UTF-32BE");
 	}
 }

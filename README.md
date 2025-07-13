@@ -9,10 +9,6 @@ Mercury is an open source translator designed to transform human-readable natura
     - DNA → Natural Language / Binary
     - Natural Language / Binary → DNA
 
-- **Semantic Preservation**:
-    - Preserves BOM (Byte Order Mark) during binary encoding
-    - Supports UTF-8, UTF-16, UTF-32 encodings (with/without BOM)
-
 - **Codon-Aware Encoding**:
     - All DNA sequences include start/stop codons and are padded to maintain 3-base alignment
 

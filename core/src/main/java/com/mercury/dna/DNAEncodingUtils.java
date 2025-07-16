@@ -1,6 +1,6 @@
 package com.mercury.dna;
 
-import static com.mercury.dna.DNAEncodingConstants.*;
+import static com.mercury.dna.DNAConversionConstants.*;
 
 import java.nio.charset.StandardCharsets;
 

@@ -1,6 +1,7 @@
 plugins {
     java
     id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
+    id("jacoco")
 }
 
 repositories {
@@ -15,4 +16,13 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
 }

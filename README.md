@@ -1,4 +1,6 @@
-# Mercury  
+# Mercury
+
+[![codecov](https://codecov.io/gh/hodadako/mercury/branch/main/graph/badge.svg)](https://codecov.io/gh/hodadako/mercury)
 
 Mercury is an open source translator designed to transform human-readable natural language to DNA Sequences. The project aims for a unique bridge between complex genomic information and accessible linguistic representations, making biological data more intuitive for researchers, developers, and enthusiasts
 

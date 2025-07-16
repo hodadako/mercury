@@ -36,7 +36,7 @@ public class SimpleDNADecoder implements DNADecoder {
             int b = 0;
             for (int j = 0; j < 4; j++) {
                 char base = payload.charAt(i * 4 + j);
-                Integer bits = DNAConversionConstants.BASE_TO_BITS_MAP.get(base);
+                Integer bits = DNAConversionConstants.BASE_TO_TWO_BITS_MAP.get(base);
                 if (bits == null) {
                     throw new DNAEncodingException("Invalid DNA base: " + base);
                 }

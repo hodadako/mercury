@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 public class SimpleDNADecoder implements DNADecoder {
     @Override
     public String decode(String dna) {
-        if (dna == null || dna.length() < 9) { // ATG + 1 codon + stop
+        if (dna == null || dna.length() < 9) {
             throw new DNAEncodingException("DNA sequence too short or null.");
         }
         if (!dna.startsWith(DNAConversionConstants.START_CODON)) {
@@ -30,7 +30,6 @@ public class SimpleDNADecoder implements DNADecoder {
             }
             payload = payload.substring(0, payload.length() - paddingLength);
         }
-        // Convert DNA bases to bytes (2 bits per base)
         int byteCount = payload.length() / 4;
         byte[] bytes = new byte[byteCount];
         for (int i = 0; i < byteCount; i++) {

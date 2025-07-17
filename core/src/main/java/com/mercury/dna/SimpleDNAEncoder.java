@@ -4,6 +4,8 @@ import java.nio.charset.Charset;
 
 import com.mercury.encoding.EncodingDetector;
 import com.mercury.encoding.Icu4jEncodingDetector;
+import com.mercury.exception.DNAEncodingException;
+import com.mercury.exception.DNAEncodingExceptionMessages;
 
 /*
  * Copyright (c) 2025 mercury contributors
@@ -31,19 +33,19 @@ public class SimpleDNAEncoder implements DNAEncoder {
 
 	private String getOriginalString(byte[] data) {
 		if (data == null || data.length == 0) {
-			throw new IllegalArgumentException("Input data must not be null or empty.");
+			throw new DNAEncodingException(DNAEncodingExceptionMessages.NULL_OR_EMPTY);
 		}
 
 		String charsetName = detector.detectEncoding(data);
 		if (charsetName == null || charsetName.isEmpty()) {
-			throw new IllegalStateException("Failed to detect character encoding.");
+			throw new DNAEncodingException(DNAEncodingExceptionMessages.INVALID_CHARACTER_ENCODING);
 		}
 
 		try {
 			Charset charset = Charset.forName(charsetName);
 			return new String(data, charset);
 		} catch (IllegalArgumentException | UnsupportedOperationException e) {
-			throw new IllegalStateException("Detected unsupported charset: " + charsetName, e);
+			throw new DNAEncodingException(DNAEncodingExceptionMessages.UNSUPPORTED_CHARSET);
 		}
 	}
 }

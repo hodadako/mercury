@@ -4,6 +4,9 @@ import static com.mercury.dna.DNAConversionConstants.*;
 
 import java.nio.charset.StandardCharsets;
 
+import com.mercury.exception.DNAEncodingException;
+import com.mercury.exception.DNAEncodingExceptionMessages;
+
 /*
  * Copyright (c) 2025 mercury contributors
  * This program is made available under the terms of the Apache License.
@@ -14,7 +17,7 @@ public final class DNAEncodingUtils {
 
 	public static String encodeToDNA(String data) {
 		if (data == null || data.isEmpty()) {
-			throw new DNAEncodingException("no data provided to encode to DNA.");
+			throw new DNAEncodingException(DNAEncodingExceptionMessages.NULL_OR_EMPTY);
 		}
 		byte[] binaryData = data.getBytes(StandardCharsets.UTF_8);
 

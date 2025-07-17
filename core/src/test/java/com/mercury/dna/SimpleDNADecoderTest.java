@@ -17,7 +17,7 @@ class SimpleDNADecoderTest {
 	@MethodSource(value = {"com.mercury.utils.ExceptionTestDataProvider#simpleDNADecoder"})
 	void shouldThrowException(String payload, String expectedMessage) {
 		SimpleDNADecoder decoder = new SimpleDNADecoder();
-		assertThatThrownBy(() -> decoder.decode(payload))
+		assertThatThrownBy(() -> decoder.decodeToText(payload))
 			.isInstanceOf(DNADecodingException.class)
 			.hasMessageContaining(expectedMessage);
 	}

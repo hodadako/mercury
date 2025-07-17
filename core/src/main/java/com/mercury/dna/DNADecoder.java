@@ -5,5 +5,6 @@ package com.mercury.dna;
  * This program is made available under the terms of the Apache License.
  */
 public interface DNADecoder {
-	String decode(String data);
+	String decodeToText(String dna);
+	byte[] decodeToBytes(String dna);
 } 

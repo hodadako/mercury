@@ -1,10 +1,12 @@
 # Mercury
 
+_also available in :_ [한국어](./docs/ko/README.md) / [日本語](./docs/ja/README.md)
+
 [![codecov](https://codecov.io/gh/hodadako/mercury/branch/main/graph/badge.svg)](https://codecov.io/gh/hodadako/mercury)
 ![CI](https://github.com/hodadako/mercury/actions/workflows/ci.yml/badge.svg)
 ![Last Commit](https://img.shields.io/github/last-commit/hodadako/mercury)
 
-Mercury is an open source translator designed to transform human-readable natural language to DNA Sequences. The project aims for a unique bridge between complex genomic information and accessible linguistic representations, making biological data more intuitive for researchers, developers, and enthusiasts
+Mercury is an open source translator designed to transform human-readable natural language to DNA Sequences. The project aims for a unique bridge between complex genomic information and accessible linguistic representations, making biological data more intuitive for researchers, developers, and enthusiasts.
 
  > The core functionality of mercury is to analyze DNA sequences and convert them into meaningful natural language sentences or designated binary sequences. This allows for DNA-embedded messages to be translated into human-readable format.
 
@@ -137,5 +139,6 @@ In a memorable scene, the protagonist Miorine Rembran discovers a hidden message
 The anime beautifully depicts this moment where a security system is unlocked using a Java-based system designed to decode the DNA message—mirroring the core idea behind this project.
 
 </details>
+<br>
 
-[May all blessings reside with you](https://youtu.be/3eytpBOkOFA?si=lWngRVD31NY4kCwh).
+[Blessing](https://youtu.be/3eytpBOkOFA?si=lWngRVD31NY4kCwh).

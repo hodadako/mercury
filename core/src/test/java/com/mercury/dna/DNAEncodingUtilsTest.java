@@ -4,21 +4,23 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
+import com.mercury.exception.DNAEncodingException;
+
+/*
+ * Copyright (c) 2025 mercury contributors
+ * This program is made available under the terms of the Apache License.
+ */
 class DNAEncodingUtilsTest {
 
-	@Test
-	void shouldThrowExceptionOnNullInput() {
-		assertThatThrownBy(() -> DNAEncodingUtils.encodeToDNA(null))
+	@ParameterizedTest(name = "{0}")
+	@MethodSource(value = "com.mercury.utils.ExceptionTestDataProvider#encodingUtils")
+	void shouldThrowException(String payload, String expectedMessage) {
+		assertThatThrownBy(() -> DNAEncodingUtils.encodeToDNA(payload))
 			.isInstanceOf(DNAEncodingException.class)
-			.hasMessageContaining("no data provided");
-	}
-
-	@Test
-	void shouldThrowExceptionOnEmptyInput() {
-		assertThatThrownBy(() -> DNAEncodingUtils.encodeToDNA(""))
-			.isInstanceOf(DNAEncodingException.class)
-			.hasMessageContaining("no data provided");
+			.hasMessage(expectedMessage);
 	}
 
 	@Test
@@ -35,7 +37,7 @@ class DNAEncodingUtilsTest {
 		String result = DNAEncodingUtils.encodeToDNA("가");
 		assertAll(
 			() -> assertThat(result).startsWith("ATG"),
-		() -> assertThat(result).hasSizeGreaterThan(10)
+			() -> assertThat(result).hasSizeGreaterThan(10)
 		);
 	}
 

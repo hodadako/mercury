@@ -20,6 +20,9 @@ public enum DNADecodingExceptionMessages {
 	}
 
 	public String getDescription() {
+		if (this == INVALID_BASE) {
+			return "Invalid DNA base";
+		}
 		return description;
 	}
 

@@ -9,8 +9,9 @@ icu4j = { module = "com.ibm.icu:icu4j", version.ref = "icu4j" }
 juniversalchardet = { module = "com.github.albfernandez:juniversalchardet", version.ref = "juniversalchardet" }
 junit-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+junit-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit" }
 assertj = {module = "org.assertj:assertj-core", version.ref = "assertj"}
 
 [bundles]
-test = ["junit-api", "junit-engine", "assertj"]
+test = ["junit-api", "junit-engine", "junit-params", "assertj"]
 encoding = ["icu4j", "juniversalchardet"]

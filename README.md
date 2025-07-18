@@ -108,7 +108,12 @@ Since 2 padding bases were added, select stop codon: `TGA`
 
 ## How to Use
 ```java
-// Examples will be added soon
+MercuryTranslator translator = new SimpleMercuryTranslator();
+
+String dna = translator.encode("I will be always attached to you");
+// ATGCAGCAGAACTCTCGGCCGTACGTAAGAACGAGCGCCAGAACGACCGTACTCTCGACCTGCCTATAGAACGACCTCACTCACGACCGATCGGACGCCCGCAAGAACTCACGTTAGAACTGCCGTTCTCCATAG
+String text = translator.decode(dna);
+// I will be always attached to you
 ```
 
 ## How to Contribute

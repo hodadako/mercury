@@ -101,7 +101,13 @@ _DNA: `CAAC` (4염기)_
 
 ## 사용법
 ```java
-// 예제는 곧 추가될 예정입니다
+MercuryTranslator translator = new SimpleMercuryTranslator();
+
+String dna = translator.encode("항상 너와 함께할게");
+// 
+ATGTGTCGCCCGGTCTGTAGAATGAACAGAATGGTGACAGAGATGTAGCGCGAAAAGAATGTCGCCCGGGATGGGGTGTGCGATGTCGCCCGGAATGGGGTAGGATAATAG
+String text = translator.decode(dna);
+// 항상 너와 함께할게
 ```
 
 ## 기여 방법

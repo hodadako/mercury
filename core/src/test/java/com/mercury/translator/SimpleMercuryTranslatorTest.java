@@ -3,7 +3,7 @@ package com.mercury.translator;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SimpleMercuryTranslatorTest {
     @ParameterizedTest(name = "{0}")
@@ -16,6 +16,6 @@ public class SimpleMercuryTranslatorTest {
         SimpleMercuryTranslator translator = new SimpleMercuryTranslator();
         String dna = translator.encode(input);
         String decoded = translator.decode(dna);
-        assertEquals(input, decoded);
+        assertThat(input).isEqualTo(decoded);
     }
 }

@@ -27,6 +27,7 @@ public class SimpleDNAEncoder implements DNAEncoder {
 		return DNAEncodingUtils.encodeToDNA(data);
 	}
 
+	@Override
 	public String encode(byte[] data) {
 		return encode(getOriginalString(data));
 	}

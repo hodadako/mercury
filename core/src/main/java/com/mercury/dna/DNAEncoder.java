@@ -6,4 +6,5 @@ package com.mercury.dna;
  */
 public interface DNAEncoder {
 	String encode(String data);
+	String encode(byte[] data);
 }

@@ -19,4 +19,8 @@ public final class NamedArgumentsFactory {
 	public static Arguments exception(String testDisplayName, String input, String expectedMessage) {
 		return Arguments.of(named(testDisplayName, input), expectedMessage);
 	}
+
+	public static Arguments translator(String testDisplayName, String input) {
+		return Arguments.of(named(testDisplayName, input));
+	}
 }

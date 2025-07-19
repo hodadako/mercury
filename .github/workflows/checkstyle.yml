@@ -1,0 +1,35 @@
+name: Checkstyle
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'core/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'core/**'
+
+jobs:
+  checkstyle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Run Checkstyle
+        run: ./gradlew checkstyleMain checkstyleTest
+
+      - name: Upload Checkstyle HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: checkstyle-report
+          path: core/build/reports/checkstyle/ 

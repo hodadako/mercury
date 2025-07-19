@@ -12,6 +12,7 @@ buildscript {
 
 plugins {
     java
+    id("checkstyle")
 }
 
 repositories {

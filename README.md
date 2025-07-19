@@ -147,3 +147,26 @@ The anime beautifully depicts this moment where a security system is unlocked us
 <br>
 
 [Blessing](https://youtu.be/3eytpBOkOFA?si=lWngRVD31NY4kCwh).
+
+## Code Style & Linting
+
+This project uses [Checkstyle](https://checkstyle.org/) to enforce code style and copyright headers on all Java files.
+
+### Copyright Header
+All Java source files must start with the following header:
+
+```
+/**
+ * Copyright (c) 20XX mercury project. All rights reserved.
+ */
+```
+Replace `20XX` with the appropriate year.
+
+### Running Checkstyle
+To check for style violations (including copyright):
+
+```
+./gradlew checkstyleMain checkstyleTest
+```
+
+Checkstyle will run automatically in CI.

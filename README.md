@@ -10,6 +10,9 @@ Mercury is an open source translator designed to transform human-readable natura
 
  > The core functionality of mercury is to analyze DNA sequences and convert them into meaningful natural language sentences or designated binary sequences. This allows for DNA-embedded messages to be translated into human-readable format.
 
+## _Disclaimer_
+The current version of mercury does not guarantee the stability of DNA sequences when used in any types of real life forms, in that many of the problems including _GC ratio_, _pre-designated sequences for ribosomes_, etc. are yet to be solved. Version 2 may include features to handle limitations mentioned above, but the version update cannot be promised at the moment.
+
 ## Features
 - **Bidirectional Conversion**:
     - DNA → Natural Language / Binary

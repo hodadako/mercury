@@ -26,6 +26,3 @@ tasks.jacocoTestReport {
         html.required.set(true)
     }
 }
-
-
-

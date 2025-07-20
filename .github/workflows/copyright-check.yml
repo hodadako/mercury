@@ -9,23 +9,34 @@ on:
 jobs:
   copyright-check:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Make script executable
-      run: chmod +x check-copyright.sh
-      
-    - name: Run copyright check
-      run: ./check-copyright.sh
-      
-    - name: Check copyright in Javadoc (optional)
-      run: |
-        echo "🔍 Checking for copyright in Javadoc comments..."
-        if grep -r "Copyright (c) 2025 mercury contributors" core/src --include="*.java" | grep -v "/*" | grep -v "*/"; then
-          echo "❌ Found copyright in Javadoc comments (should be in file header only)"
-          exit 1
-        else
-          echo "✅ No copyright found in Javadoc comments"
-        fi 
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check Java file copyright header
+        run: |
+          echo "🔍 Checking for correct copyright header..."
+          
+          failed=0
+          
+          while IFS= read -r -d '' file; do
+            line1=$(sed -n '1p' "$file")
+            line2=$(sed -n '2p' "$file")
+            line3=$(sed -n '3p' "$file")
+            line4=$(sed -n '4p' "$file")
+          
+            if [ "$line1" != '/*' ] || \
+               [ "$line2" != ' * Copyright (c) 2025 mercury contributors' ] || \
+               [ "$line3" != ' * This program is made available under the terms of the Apache License.' ] || \
+               [ "$line4" != ' */' ]; then
+              echo "❌ Header incorrect in: $file"
+              failed=1
+            fi
+          done < <(find core/src -name "*.java" -print0)
+          
+          if [ "$failed" -eq 1 ]; then
+            exit 1
+          fi
+          
+          echo "✅ All Java files have the correct header."

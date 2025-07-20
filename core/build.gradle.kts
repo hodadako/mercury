@@ -2,7 +2,6 @@ plugins {
     java
     id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
     id("jacoco")
-    id("checkstyle")
 }
 
 repositories {
@@ -12,6 +11,7 @@ repositories {
 
 dependencies {
     implementation(libs.bundles.encoding)
+    implementation(libs.bundles.lint)
     testImplementation(libs.bundles.test)
 }
 
@@ -28,14 +28,5 @@ tasks.jacocoTestReport {
     }
 }
 
-checkstyle {
-    version = "10.12.4"
-    configFile = file("${project.projectDir}/checkstyle.xml")
-}
 
-tasks.withType<Checkstyle> {
-    reports {
-        xml.required.set(false)
-        html.required.set(true)
-    }
-}
+

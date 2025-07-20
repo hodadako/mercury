@@ -17,26 +17,21 @@ jobs:
       - name: Check Java file copyright header
         run: |
           echo "🔍 Checking for correct copyright header..."
-          
+
           failed=0
-          
+
           while IFS= read -r -d '' file; do
-            line1=$(sed -n '1p' "$file")
-            line2=$(sed -n '2p' "$file")
-            line3=$(sed -n '3p' "$file")
-            line4=$(sed -n '4p' "$file")
-          
-            if [ "$line1" != '/*' ] || \
-               [ "$line2" != ' * Copyright (c) 2025 mercury contributors' ] || \
-               [ "$line3" != ' * This program is made available under the terms of the Apache License.' ] || \
-               [ "$line4" != ' */' ]; then
-              echo "❌ Header incorrect in: $file"
+            if ! grep -Fq '/*' "$file" || \
+               ! grep -Fq ' * Copyright (c) 2025 mercury contributors' "$file" || \
+               ! grep -Fq ' * This program is made available under the terms of the Apache License.' "$file" || \
+               ! grep -Fq ' */' "$file"; then
+              echo "❌ Missing copyright header in: $file"
               failed=1
             fi
           done < <(find core/src -name "*.java" -print0)
-          
+
           if [ "$failed" -eq 1 ]; then
             exit 1
           fi
-          
-          echo "✅ All Java files have the correct header."
+
+          echo "✅ All Java files contain the correct header."

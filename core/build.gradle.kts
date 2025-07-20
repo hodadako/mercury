@@ -2,7 +2,7 @@ plugins {
     java
     id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
     id("jacoco")
-    id("checkstyle") version "10.12.4"
+    id("checkstyle")
 }
 
 repositories {
@@ -28,8 +28,9 @@ tasks.jacocoTestReport {
     }
 }
 
-tasks.checkstyle {
-    configFile = file("${rootProject.projectDir}/checkstyle.xml")
+checkstyle {
+    version = "10.12.4"
+    configFile = file("${project.projectDir}/checkstyle.xml")
 }
 
 tasks.withType<Checkstyle> {

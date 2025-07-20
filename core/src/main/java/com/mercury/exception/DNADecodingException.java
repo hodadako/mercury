@@ -9,7 +9,7 @@ public class DNADecodingException extends RuntimeException {
 		super(message.getDescription());
 	}
 
-	public DNADecodingException(DNADecodingExceptionMessages message, Character... args) {
+	public DNADecodingException(DNADecodingExceptionMessages message, Character args) {
 		super(message.format(args));
 	}
 }

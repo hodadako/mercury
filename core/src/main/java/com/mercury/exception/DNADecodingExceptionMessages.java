@@ -26,7 +26,7 @@ public enum DNADecodingExceptionMessages {
 		return description;
 	}
 
-	public String format(Character... args) {
+	public String format(Character args) {
 		return String.format(description, args);
 	}
 }

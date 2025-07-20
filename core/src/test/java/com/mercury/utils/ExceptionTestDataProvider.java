@@ -9,6 +9,10 @@ import org.junit.jupiter.params.provider.Arguments;
 import com.mercury.exception.DNADecodingExceptionMessages;
 import com.mercury.exception.DNAEncodingExceptionMessages;
 
+/*
+ * Copyright (c) 2025 mercury contributors
+ * This program is made available under the terms of the Apache License.
+ */
 public final class ExceptionTestDataProvider {
 	private ExceptionTestDataProvider() {
 	}

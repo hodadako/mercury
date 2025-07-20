@@ -5,7 +5,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SimpleMercuryTranslatorTest {
+/*
+ * Copyright (c) 2025 mercury contributors
+ * This program is made available under the terms of the Apache License.
+ */
+class SimpleMercuryTranslatorTest {
     @ParameterizedTest(name = "{0}")
     @MethodSource(value = {
             "com.mercury.utils.TranslatorTestDataProvider#englishSentences",

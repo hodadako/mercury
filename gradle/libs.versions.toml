@@ -3,7 +3,6 @@ icu4j = "74.1"
 juniversalchardet = "2.4.0"
 junit = "5.10.2"
 assertj = "3.25.3"
-checkstyle = "10.12.4"
 
 [libraries]
 icu4j = { module = "com.ibm.icu:icu4j", version.ref = "icu4j" }
@@ -12,9 +11,7 @@ junit-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "jun
 junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 junit-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit" }
 assertj = {module = "org.assertj:assertj-core", version.ref = "assertj"}
-checkstyle = {module = "com.puppycrawl.tools:checkstyle", version.ref = "checkstyle"}
 
 [bundles]
-lint = ["checkstyle"]
 test = ["junit-api", "junit-engine", "junit-params", "assertj"]
 encoding = ["icu4j", "juniversalchardet"]

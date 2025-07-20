@@ -11,7 +11,6 @@ repositories {
 
 dependencies {
     implementation(libs.bundles.encoding)
-    implementation(libs.bundles.lint)
     testImplementation(libs.bundles.test)
 }
 

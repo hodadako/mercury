@@ -10,6 +10,7 @@ import org.junit.jupiter.params.provider.Arguments;
  * Copyright (c) 2025 mercury contributors
  * This program is made available under the terms of the Apache License.
  */
+@SuppressWarnings("unused")
 public final class TranslatorTestDataProvider {
     private TranslatorTestDataProvider() {}
 

@@ -18,12 +18,12 @@ dependencies {
 mavenPublishing {
     coordinates (
         groupId = "io.github.hodadako",
-        artifactId = "mercury-core"
+        artifactId = "mercury-core",
         version = "0.1.0"
     )
 
     pom {
-        name.set{"mercury-core"}
+        name.set("mercury-core")
         description.set("DNA to Text Translator")
         inceptionYear.set("2025")
         url.set("https://github.com/hodadako/mercury")
@@ -49,7 +49,7 @@ mavenPublishing {
             system.set("GitHub Issues")
             url.set("https://github.com/hodadako/mercury/issues")
         }
-        publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+        publishToMavenCentral(true)
         signAllPublications()
     }
 }

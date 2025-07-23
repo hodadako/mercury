@@ -16,11 +16,11 @@ dependencies {
 }
 
 mavenPublishing {
-    coordinates {
+    coordinates (
         groupId = "io.github.hodadako",
         artifactId = "mercury-core"
         version = "0.1.0"
-    }
+    )
 
     pom {
         name.set{"mercury-core"}

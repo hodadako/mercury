@@ -1,4 +1,4 @@
-name: CI
+name: test-coverage with codecov
 
 on:
   push:

@@ -1,5 +1,5 @@
 rootProject.name = "mercury"
-include("core")
+include(":core")
 
 pluginManagement {
     buildscript {

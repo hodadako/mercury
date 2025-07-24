@@ -15,8 +15,21 @@ dependencies {
     testImplementation(libs.bundles.test)
 }
 
+tasks.test {
+    useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+}
+
 mavenPublishing {
-    coordinates (
+    coordinates(
         groupId = "io.github.hodadako",
         artifactId = "mercury-core",
         version = "0.1.0"
@@ -49,20 +62,7 @@ mavenPublishing {
             system.set("GitHub Issues")
             url.set("https://github.com/hodadako/mercury/issues")
         }
-        publishToMavenCentral(true)
-        signAllPublications()
     }
-}
-
-tasks.test {
-    useJUnitPlatform()
-    finalizedBy(tasks.jacocoTestReport)
-}
-
-tasks.jacocoTestReport {
-    dependsOn(tasks.test)
-    reports {
-        xml.required.set(true)
-        html.required.set(true)
-    }
+    publishToMavenCentral(true)
+    signAllPublications()
 }

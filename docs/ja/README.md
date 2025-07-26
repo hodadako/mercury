@@ -102,6 +102,14 @@ _DNA: `CAAC`（4塩基）_
 > **最終DNA:** `ATGCAACAATGA`
 
 ## 使い方
+### Gradle
+```kotlin
+dependencies {
+    implementation("io.github.hodadako:mercury-core:0.1.2")
+}
+```
+
+### In Code
 ```java
 MercuryTranslator translator = new SimpleMercuryTranslator();
 

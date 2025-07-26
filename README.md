@@ -110,6 +110,14 @@ Since 2 padding bases were added, select stop codon: `TGA`
 > **Final DNA sequences:** `ATGCAACAATGA`
 
 ## How to Use
+### Gradle
+```kotlin
+dependencies {
+    implementation("io.github.hodadako:mercury-core:0.1.2")
+}
+```
+
+### In Code
 ```java
 MercuryTranslator translator = new SimpleMercuryTranslator();
 
